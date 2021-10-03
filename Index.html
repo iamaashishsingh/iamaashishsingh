@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container pt-5">
+        <table id="tabledata" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>UserId</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="editPostModal" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="savePost(event)">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">User Id:</label>
+                            <input type="number" class="form-control" id="edit-userId" required>
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="recipient-name" class="col-form-label">Id:</label>
+                            <input type="text" class="form-control" id="edit-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Title:</label>
+                            <input type="text" class="form-control" id="edit-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Body:</label>
+                            <textarea class="form-control" id="edit-body" required></textarea>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade delete-example-modal-lg" id="deletePostModal" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <p class="text-center mt-3"> Are You Sure Want To Delete This Record?</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-danger" onClick="DeletePostData()"> Yes! Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade view-example-modal-lg" tabindex="-1" id="viewPostModal" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">View Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <i class="fas fa-user"></i>
+                    User Id
+                    <div class="feild-bg mb-3">
+                        <p id="view-userId"></p>
+                    </div>
+                    <i class="fa fa-id-card" aria-hidden="true"></i>
+                    Post Id
+                    <div class="feild-bg  mb-3">
+                        <p class="" id="view-id"></p>
+                    </div>
+                    <i class="far fa-comment-dots"></i>
+                    Title
+                    <div class="feild-bg  mb-3">
+                        <p id="view-title"></p>
+                    </div>
+                    <i class="fab fa-accusoft"></i>
+                    Body
+                    <div class="feild-bg  mb-3">
+                        <p id="view-body"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.js"></script>
+<script src="http://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script src="./index.js"></script>
+
+</html>

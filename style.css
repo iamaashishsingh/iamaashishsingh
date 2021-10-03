@@ -1,0 +1,12 @@
+@media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 90% !important;
+}
+}
+
+.feild-bg {
+    background: gainsboro;
+    padding: 3px;
+    border-radius: 9px;
+}
+
