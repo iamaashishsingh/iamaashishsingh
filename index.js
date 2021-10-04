@@ -138,7 +138,6 @@ function ShowPostData(id) {
     $('#viewPostModal').modal('show');
 }
 
-var deleteId; 
 function DeleteConfirmation(id){
     localStorage.setItem("del-id",id)
     $('#deletePostModal').modal('show');    
